@@ -8,3 +8,4 @@ phue.conf
 *.sqlite
 zwcfg_*.xml
 zwscene.xml
+secrets.yaml
