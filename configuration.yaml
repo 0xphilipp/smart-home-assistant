@@ -1,0 +1,95 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude_loc_home
+  longitude: !secret longitude_loc_home 
+  elevation: 589
+  unit_system: metric
+  time_zone: Europe/Berlin
+
+zone:
+  name: Work
+  latitude: !secret latitude_loc_work
+  longitude: !secret longitude_loc_work
+  radius: 250
+  icon: mdi:worker
+
+mqtt:
+  broker: localhost
+  client_id: home-assistant-1  
+  keepalive: 60
+  username: !secret mqqt_user
+  password: !secret mqqt_password
+
+http:
+  api_password: !secret http_password
+  # ssl_certificate: !secret ssl_path
+  # ssl_key: !secret ssl_key
+
+# ifttt:
+#   key: !secret ifttt_key
+
+light:
+  platform: hue
+  host: 192.168.0.4
+
+ios:
+
+notify:
+  - name: ALL
+    platform: group
+    services:
+      - service: ios_philipp
+      - service: ios_linda
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# zwave:
+#   usb_path: /dev/ttyACM0
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  platform: google
+
+##########################
+# Includes
+##########################
+
+sensor: !include includes/sensors.yaml
+binary_sensor: !include includes/binary_sensors.yaml
+automation: !include includes/automations.yaml
+script: !include includes/scripts.yaml
+group: !include includes/groups.yaml
+switch: !include includes/switches.yaml
+
+cover: !include includes/covers.yaml
+shell_command: !include includes/shell_commands.yaml
+

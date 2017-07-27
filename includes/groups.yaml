@@ -1,0 +1,12 @@
+outdoor:
+  name: "Au\xDFen"
+  entities:
+  - sensor.dark_sky_daily_high_temperature
+  - sensor.dark_sky_daily_low_temperature
+  - sensor.dark_sky_summary
+  - sun.sun
+  - sensor.netatmo_outdoor_humidity
+  - sensor.dark_sky_wind_speed
+  - sensor.dark_sky_precip_intensity
+  - cover.wohnzimmer_links
+  view: false

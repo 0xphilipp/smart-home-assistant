@@ -1,0 +1,74 @@
+- platform: darksky
+  api_key: !secret dark_sky_api_password
+  monitored_conditions:
+    - summary
+    - temperature
+    - wind_speed
+    - humidity
+    - temperature_min
+    - temperature_max
+    - hourly_summary
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - cloud_cover
+
+- platform: speedtest
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  monitored_conditions:
+    - download
+    - upload
+
+- platform: command_line
+  name: CPU Temperature
+  command: 'cat /sys/class/thermal/thermal_zone0/temp'
+  unit_of_measurement: '°C'
+  value_template: '{{ (value | multiply(0.001)) | round(1) }}'
+
+- platform: systemmonitor
+  resources:
+  - type: disk_use_percent
+    arg: /
+  - type: memory_free
+  - type: processor_use
+  - type: network_in
+    arg: eth0
+  - type: network_out
+    arg: eth0
+  - type: last_boot
+
+- platform: yahoo_finance
+  symbols:
+    - AMZN
+    - AAPL
+    - MSFT
+    - SIE.DE
+
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
+  name: HA Current Version
+  value_template: '{{ value_json.info.version }}'
+  scan_interval: 3600
+
+- platform: miflora
+  mac: 'C4:7C:8D:63:5A:BB'
+  name: Basilikum
+  median: 1
+  monitored_conditions:
+    - temperature
+    - moisture
+    - light
+    - conductivity
+    - battery
+
+- platform: broadlink
+  update_interval: 60
+  host: 192.168.0.10
+  mac: '34:EA:34:E7:F1:FD'
+  monitored_conditions:
+    - temperature

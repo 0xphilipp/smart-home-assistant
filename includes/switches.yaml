@@ -1,0 +1,10 @@
+- platform: broadlink
+  host: 192.168.0.10
+  mac: '34:EA:34:E7:F1:FD'
+  timeout: 15
+  friendly_name: 'RF Control'
+  switches:
+    pc_bildschirm:
+      friendly_name: "PC Bildschirm"
+      command_on: 'sg40AAsgCyALIAwgDCALIAsgIQsLICELCyAhCwsgIQsLIAsgCyAhCwsgIQsLICELCyAgCwsAAUgAAAAA'      
+      command_off: 'sgCgAQogCx8LIAogCx8LIAogIAoLHyEKCx8hCgsfIAoMHwsfCyAgCgsfIQoLHyEKCx8LIAsAAUcLHwsfCyALHwsfCyAKICALCiAgCgsgIAoLICAKCx8LIAsfIAoLICALCiAgCgsgCx8LAAFHCyAKIAsfCyAKIAsfCyAgCgsgIAoLHyALCx8gCwsfCyAKICAKCyAgCgsgIAoLIAogCwABRwsfCyALHwsfCyALHwsfIAsLHyALCx8gCgsgIAoLIAsfCyAgCgsgIAoLHyEKCx8LIAsAAUcLHwsfCyALHwsfCyALHyALCiAgCgsgIAoLICAKCx8hCgsfIQoLHyALCx8gCyAKIAsLAAFHCx8LIAogCx8LIAsfCx8gCwsfIAsLHyALCiAgCgsgIAsKICAKCyAgCgsfIQogCiEKCwABRwsfCyALHwsfCyALHwsgIAoLHyEKCx8gCwsfIAsLHyAKDB8gCgsgIAoLICAKIAsgCgsAAUgLHwsfCyALHwsfCyALHyAKCyAgCgsgIAoLICAKCyAgCgsfIQoLHyALCx8gCyAKIQoLAAXcAAAAAAAAAAA='

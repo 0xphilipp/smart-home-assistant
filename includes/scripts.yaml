@@ -1,0 +1,49 @@
+restart_ha:
+  alias: Restart Home Assistant
+  sequence:
+    - alias: Restart HA
+      service: homeassistant.restart
+
+reload_automations:
+  alias: Reload Automations
+  sequence:
+    - alias: Reload-Automations
+      service: automation.reload
+      
+reboot_pi:
+  alias: Reboot System
+  sequence:
+    - service: homeassistant.turn_off
+    - service: shell_command.pi_restart 
+
+send_notification:
+  alias: Essen fertig
+  sequence:
+    - alias: Essen fertig
+      service: notify.ios_philipp
+      data:
+        message: "Essen ist fertig!"
+        data:
+          subtitle: "Bitte kommen :)"
+
+cover_1_open:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_10
+      data:
+        packet: 
+          - 'sgCmABcNCxkLGRcMGAwYDBgMFw4LGBgMDBkLGAwYDBgMGBcOCxkLGBgMDBgYDBgMGAwMGRcNFwwMGAwYDBgMGAwYGA0LGQsYDBgYDBgMGAwYDAwAAWusOBcNCxkLGRcMGAwYDBgMFw0MGRcNCxkLGAwYDBgMGBcOCxkLGRcMDBgYDBgMFw0MGRcMGA0LGAwYDBgMGAwYFw4MGAsZCxgYDBgMGAwYDAsABdwAAA=='
+          
+cover_1_close:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_10
+      data:
+        packet: 
+          - 'sgD6ABgMDBgMGBgMGAwXDRcMGA0MGBgMDBgMGAwYDBgMGBgMDBgMGBgMDBgYDBgMFw0MGBgMGAwMGAwYDBgMGAwYFw0MGQsYGAwYDBgMGAwMFwwAAW2tOBcMDBgMGBgMGAwYDBgMGAwMGBgMDBgMGAwYDBgMGBgNCxgMGBgMDBgYDBgMGAwMGRcMGAwMGAwYDBgMGAwYGA0MFwwYGAwYDBgMGAwMGAwAAWyuNxgMDBgMGBgMGAwXDBgMGA0MGBgMDBgMGAwYDBcMGBgNDBgMGBgMDBgYDBgMFwwMGRgMGAwMGAwYDBgMGAwXGA0MGAwYGAwYDBcNFwwNFwwABdwAAAAAAAAAAAAAAAAAAA=='
+          
+cover_1_stop:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_10
+      data:
+        packet: 
+          - 'sgD2ARgMCxkLGRcMGAwYDBgMGA0MGBcNCxkLGQsYDBgMGBgNCxkMGBcNCxkXDBgMGAwMGRgMFw0LGAwYDBgMGAwYGA0MGBcNCxgYDAwYGAwMGBgAAWGtNxgMDBgMGBcNFw0XDBgMGA0MGBcNCxkLGQsYDBgMGRcNDBgMGBcNCxkXDRcNFwwMGRgMFw0MGAsZCxgMGQsYGA0MGBgMDBgXDQsZFw0LGBgAAWenOBcMDBkLGBgMGAwYDBgMGA0LGRcNCxgMGAwYDBgMGBgNCxkLGRcMDBgYDBgMGAwMGRcNFw0LGAwYDBgMGAwYGA0MGBcNCxgYDQsYGAwMGBgAAWSnOBcMDBgMGBgMGAwYDBcNFw0MGRcMDBgMGAwYDBgMGBgNCxgMGRcMDBgYDBgMGAwMGBgMGAwMGAwYDBgMGAwYGA0LGRcMDBgYDAwYGAwMGBcAAWenNxgMDBgLGBgNFw0XDBgMGA0MGBcNCxkLGAwYDBgMGBgNDBgMGBcNCxkXDBgMGAwMGRgMFw0LGQsYDBgMGAwYGA0MGBcNDBgXDQsYGAwMGBgAAWWsMhgMDBgMGBgMGAwXDRcNFw0MGBgMDBgMGAwYDBgMGBcNDBgMGBgMDBgYDBcNFw0LGRgMGAwMGAwYDBgMGAsZFw0MGBgMDBgYDAwYFw0MGBcABdwLGQ=='
+      

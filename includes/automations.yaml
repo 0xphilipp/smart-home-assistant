@@ -1,0 +1,10 @@
+- alias: Sende Nachricht an Philipp
+  trigger:
+    - platform: mqtt
+      topic: hue/hue_dimmer_switch_1/buttonevent
+      payload: '4003'
+  action:
+    - service: notify.ALL
+      data:
+        message: "Gute Nacht!"
+

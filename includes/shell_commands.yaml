@@ -1,0 +1,8 @@
+##########################
+# Shell commands
+##########################
+
+turn_off_server: 'bash /opt/scripts/freenas/shutdown_server.sh'
+pi_restart: 'sudo shutdown -r now'
+pi_shutdown: 'sudo shutdown -h now'
+homeassistant_restart: 'sudo systemctl restart home-assistant@homeassistant'

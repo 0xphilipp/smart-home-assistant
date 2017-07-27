@@ -1,0 +1,10 @@
+deps/*
+phue.conf
+.HA_VERSION
+.ios.conf
+.uuid
+*.db
+*.txt
+*.sqlite
+zwcfg_*.xml
+zwscene.xml

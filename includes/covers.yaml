@@ -1,0 +1,21 @@
+- platform: template
+  covers:
+    cover_1:
+      # value_template: >
+      #   {% if states.script.cover_1_open.attributes.last_triggered  and states.script.cover_1_close.attributes.last_triggered %}
+      #     {{states.script.cover_1_open.attributes.last_triggered > states.script.cover_1_close.attributes.last_triggered}}
+      #   {% elif states.script.cover_1_open.attributes.last_triggered %}
+      #     {{ true }}
+      #   {% else %}
+      #     {{ false }}
+      #   {% endif %}
+      position_template: > 
+        {{50}}
+      friendly_name: "Wohnzimmer links"
+      open_cover:
+        service: script.cover_1_open
+      close_cover:
+        service: script.cover_1_close
+      stop_cover:
+        service: script.cover_1_stop
+
