@@ -1,12 +1,26 @@
 outdoor:
-  name: "Au\xDFen"
+  name: "Außen"
   entities:
+  - sensor.dark_sky_temperature
   - sensor.dark_sky_daily_high_temperature
   - sensor.dark_sky_daily_low_temperature
   - sensor.dark_sky_summary
   - sun.sun
-  - sensor.netatmo_outdoor_humidity
+  - sensor.dark_sky_humidity
   - sensor.dark_sky_wind_speed
   - sensor.dark_sky_precip_intensity
-  - cover.wohnzimmer_links
+  view: false
+
+WZ Licht:
+  name: 'Wohnzimmer Licht'
+  entities:
+  - light.hue_color_lamp_1
+  - light.hue_color_lamp_2
+  - light.hue_color_lamp_3
+  view: false
+
+pc:
+  name: 'Computer Wohnzimmer'
+  entities:
+  - switch.aeotec_zw075_smart_switch_gen5_switch
   view: false

@@ -16,6 +16,11 @@ reboot_pi:
     - service: homeassistant.turn_off
     - service: shell_command.pi_restart 
 
+shutdown_pi:
+  alias: Shutdown System
+  sequence:
+    - service: shell_command.pi_shutdown
+
 send_notification:
   alias: Essen fertig
   sequence:

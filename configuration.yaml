@@ -5,6 +5,7 @@ homeassistant:
   elevation: 589
   unit_system: metric
   time_zone: Europe/Berlin
+  customize: !include includes/customize.yaml
 
 zone:
   name: Work
@@ -30,7 +31,8 @@ http:
 
 light:
   platform: hue
-  host: 192.168.0.4
+  host: 192.168.0.5
+  allow_unreachable: true
 
 ios:
 
@@ -50,8 +52,8 @@ frontend:
 # Enables configuration UI
 config:
 
-# zwave:
-#   usb_path: /dev/ttyACM0
+zwave:
+  usb_path: /dev/ttyACM0
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -61,7 +63,7 @@ config:
 updater:
 
 # Discover some devices automatically
-discovery:
+# discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -93,3 +95,9 @@ switch: !include includes/switches.yaml
 cover: !include includes/covers.yaml
 shell_command: !include includes/shell_commands.yaml
 
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include includes/floorplan.yaml

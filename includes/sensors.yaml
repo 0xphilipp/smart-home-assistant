@@ -2,6 +2,7 @@
   api_key: !secret dark_sky_api_password
   monitored_conditions:
     - summary
+    - icon
     - temperature
     - wind_speed
     - humidity

@@ -1,0 +1,93 @@
+name: Demo Floorplan
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+warnings:
+hide_app_toolbar:
+date_format: DD.MM.YYYY
+groups:
+  - name: Lights
+    entities:
+      - light.wohnzimmer
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      domain: light
+      service: toggle
+
+  - name: Scripts
+    entities:
+      - script.cover_1_open
+      - script.cover_1_close
+      - script.cover_1_stop
+    action:
+      domain: script
+      service: activate
+
+  # - name: Cover 1 Close
+  #   entities:
+  #     - script.cover_1_close
+  #   action:
+  #     domain: script
+  #     service: cover_1_close
+
+  # - name: Cover 1 Stop
+  #   entities:
+  #     - script.cover_1_stop
+  #   action:
+  #     domain: script
+  #     service: cover_1_stop
+
+
+  - name: Switches
+    entities:
+      - group.pc
+    states:
+      - state: 'on'
+        class: 'switch-on'
+      - state: 'off'
+        class: 'switch-off'
+    action:
+      domain: switch
+      service: toggle
+
+  - name: Dark Sky Sensors
+    entities:
+      - sensor.dark_sky_icon
+    image_template: '
+      var imageName = "";
+
+      switch (entity.state) {
+        case "clear-day":
+          imageName = "day";
+          break;
+
+        case "clear-night":
+          imageName = "night";
+          break;
+
+        case "partly-cloudy-day":
+          imageName = "cloudy-day-1";
+          break;
+
+        case "partly-cloudy-night":
+          imageName = "cloudy-night-1";
+          break;
+
+        case "cloudy":
+          imageName = "cloudy";
+          break;
+
+        case "rain":
+          imageName = "rainy-1";
+          break;
+
+        case "snow":
+          imageName = "snowy-1";
+          break;
+      }
+
+      return "/local/custom_ui/floorplan/images/weather/" + imageName + ".svg";
+      '

@@ -1,0 +1,14 @@
+  sensor.dark_sky_daily_high_temperature:
+    friendly_name: High
+  sensor.dark_sky_daily_low_temperature:
+    friendly_name: Low
+  sensor.dark_sky_summary:
+    friendly_name: Aussicht
+  sensor.dark_sky_precip_intensity:
+    friendly_name: Regen
+  sensor.dark_sky_wind_speed:
+    friendly_name: Windgeschwindigkeit
+  sensor.dark_sky_temperature:
+    friendly_name: Temperatur
+  sensor.dark_sky_humidity:
+    friendly_name: Luftfeuchtigkeit
